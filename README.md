@@ -37,7 +37,9 @@ Als nächstes muss ein Repository erstellt werden. Ein Repository ist eine Art S
 1. Terminal Bash öffnen
 2. Den Befehl eingeben mit der Emailadresse des Github Accounts:
 
-``` $ ssh-keygen -t rsa -b 4096 -C 'DEINE EMAILADRESSE' ```
+```
+ $ ssh-keygen -t rsa -b 4096 -C 'DEINE EMAILADRESSE' 
+```
 
 3. Danach wird ein Key erstellt und man muss mit Enter bestätigen.
 
