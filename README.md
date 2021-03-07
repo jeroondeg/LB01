@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 #  M300-Services
 
 ## Dokumentation
 
-Einleitung
+### Einleitung
+In diesem Dokument werden alle Arbeiten weitesgehend dokumentiert.
 
-Hier handelt es sich um eine Dokumentation für die LB02 im Modul 300. Da werde ich meine Arbeitsschritte festhalten und einige Sachen, die ich gelernt habe.
 
 ## Einrichtung
 
@@ -20,27 +19,20 @@ Inhaltsverzeichnis
 * 07 - Quellenverzeichnis
 
 ## 01 - Github Account
-
-Man erstellt als erstes ein Github Account, dieser dient als Cloud-Speicher, von dieser Dokumentation.
-
-Folgende Schritte müssen gemacht werden:
-
 ### Account erstellen
+1. Als erstes wurde über die Seite https://github.com ein Account mit der TBZ Mailadresse erstellt.
 
-1. Auf www.github.com muss ein Account erstellt werden.
-2. Nun muss die Email bestätigt werden und meldet sich wieder an.
+2. Anschliessend den Account verifizieren und schon können Repositorys etc erstellt werdenn.
 
 ### Repository erstellen
 
-In der Repository erstellt man ein Readme File um dann hier dokuemntieren zu können.
+Als nächstes muss ein Repository erstellt werden. Ein Repository ist eine Art Speicher für ein Projekt. Hier die Schritte dazu:
 
 1. Anmelden unter www.github.com
-2. Innerhalb der Willkommens-Seite auf Start a project klicken
-3. Unter Repository name einen Name definieren (z.B. M300)
-4. Optional: kurze Beschreibung eingeben
-5. Radio-Button bei Public belassen
-6. Hacken bei Initialize this repository with a README setzen
-7. Auf Create repository klicken
+2. Auf der Willkommensseite ein neues Repository erstellen
+3. Nun einen Namen angeben, in meinem Fall M300-Services
+5. Nun kann festgelegt werden wer alles auf dieses Repository schauen / Dinge bearbeiten kann. Wie in der Aneltigun beschriebn wird diese Einstellung auf Public belassen.
+6. Nun muss nur noch das Häkchen bei create README File gesetzt werden und schon kann das Repository erstellt werden.
 
 ### SSH-Key erstellen
 
@@ -66,7 +58,7 @@ In der Repository erstellt man ein Readme File um dann hier dokuemntieren zu kö
 
 ## 02 - Git Client
 
-Jetzt muss der Git Client installiert werden. Dieser ermöglicht uns, Cloud-Repositories zu klonen, zu pullen (herunteraden) oder ein lokales Repository zu pushen (hochladen).
+Jetzt muss der Git Client installiert werden. Dieser ermöglicht uns, 
 
 Hierzu müssen folgende Schritte durchgeführt werden:
 
@@ -75,8 +67,8 @@ Hierzu müssen folgende Schritte durchgeführt werden:
 
 | Befehle      |    Bedeutung    |
 | ------------- |:-------------:|
-| $ git config --global user.name <username>       |      Konfiguration Username  |
-| $ $ git config --global user.email <e-mail>   | Konfiguration Email
+| $ git config --global user.name <username>       |      Den Github Usernamen angeben  |
+| $ $ git config --global user.email <e-mail>   | Die im Github verwendete Mail angeben
 
 3. Konfiguration abgeschlossen
 
@@ -86,11 +78,12 @@ Hierzu müssen folgende Schritte durchgeführt werden:
 
 | Befehle      |    Bedeutung    |
 | ------------- |:-------------:|
-| $ git clone https://github.com/YangGorgoni/M300/     |      Repository klonen  |
-| $ git pull    |      zeigt ob es up to date ist   |
+| $ git clone https://github.com/jeroondeg/M300-Services/     |      Repository klonen  |
+| $ git pull    |      Zeigt den Status ab   |
 |   $ git status   |     Geänderte Datei(en) werden rot aufgelistet |
 
 ### Repository herunteraden
+Dieser Befehl ist wichtig, damit die Änderungen lokal gemacht werden können und anschliessen einfach auf Github hochgeladen werden kömmem. Dazu hier die Schritte: 
 
 1. Terminal Bash öffnen
 2. Ordner im gewünschtenn Verzeichnis erstellen
@@ -98,7 +91,7 @@ Hierzu müssen folgende Schritte durchgeführt werden:
 
 | Befehle      |    Bedeutung    |
 | ------------- |:-------------:|
-|  $ git clone git@github.com:YangGorgoni/M300.git    |      Klonen des Respository mit SSH  |
+|  $ git clone git@github.com:jeroondeg/M300-Services.git    |      Klonen des Respository mit SSH  |
 
 ### Repository pushen (hochladen)
 
@@ -124,8 +117,10 @@ Hierzu müssen folgende Schritte durchgeführt werden:
 
 
 ## 03 - VirtualBox
+In diesem Abschnitt geht es um eine Basic Installation eines Linux über Virtualbox. Ich mache alles auf einer ESXi Umgebung, welche aus 3 ESXi besteht. Dementsprechend habe ich auf dieser Umgebung viel Ressourcen, deshalb habe ich diesen Schritt über ESXi erledigt. Ich werde nicht weiter darauf eingehen, wie ich das gemacht habe, da jeder mittlerweile eine VM aufsetzen kann. Hier einmal ein Screenshot von der ESXi Umgebung:
 
- Wie man es schon kennt, muss man eine VM erstellen mit Ubuntu in Virtual Box. Das werde ich nicht dokumentieren, da das nichts neues ist und ich schon weiss wie das funktioniert.
+
+Und hier noch ein Screenshot von der M300 Infrastrukut Stand jetzt:
 
 ## 04 - Vagrant
 
@@ -168,4 +163,3 @@ Ich habe mich nicht für Visual Studio entschieden, sondern für Atom. Diese wur
 ### 35 Sicherheit
 ### 40 Kubernetes (k8s)
 ### 80 Ergänzungen zu den Unterlagen
->>>>>>> 6db4b60326570d54eb2134f09bc830433cc444ed
