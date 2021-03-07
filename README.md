@@ -139,6 +139,8 @@ Und hier noch ein Screenshot von der M300 Infrastrukut Stand jetzt:
 
 Wenn man schon einmal selber die VM's erstellt hat, dann weiss man für mehrere braucht man lange. Für eine schnellere Variante gibt es Vagrant. Mit dem können VM's automatisch erstellt werden mit nur einem kurzen Code.
 
+#### Erste VM mit Vagrant aufsetzen
+
 Im gewünschten Verzeichnis kann man mit einer Zeile, die VM erzeugen:
 
 Mit diesem Befehl wird das Vagrant File erstellt, welches notwendig ist um danach die VMs von Vagrant auf zu erstellen:
@@ -150,6 +152,38 @@ Nach einiger Wartezeit sollte der Befehl erfolgreich durchgelaufen sein, danach 
 ```
 $ vagrant up --provider virtualbox
 ```
+#### Automatisierten Webserver aufsetzen
+
+Folgendes Szenario, man ist ein Hosting Unternehemn und man möchte, konstant VMs laufen haben, auf den das gleiche läuft. Natürlich könnte man dies per Hand machen, viel schneller geht dies jedoch wenn man ein Code hat, welches jeweils immer eine VM erstellt wenn man dieses ausführt.
+
+In meinem Fall konnte ich automatisiert einen Webserver installieren, ausserdem habe ich darauf geachtet dass ich das Vagrantfile so anpasse, dass ich auch einen schönen VM Namen habe, natürlich müsste man dies dann auch im Linux anpassen, aber das ist dann eine reinse Config Datei Erweitertungs Sache.
+
+Dafür wurde zuerst ein neuer Ordner erstellt, in dem ich die Apache Tests durchführen werde.
+
+Danach wird das der folgende Code als Vagrantfile erstellt:
+
+```
+Vagrant.configure(2) do |config|
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true
+  config.vm.synced_folder ".", "/var/www/html"
+config.vm.provider "virtualbox" do |vb|
+   vb.name = "M300WEB01"
+  vb.memory = "512"
+end
+config.vm.provision "shell", inline: <<-SHELL
+  # Packages vom lokalen Server holen
+  # sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list
+  sudo apt-get update
+  sudo apt-get -y install apache2
+SHELL
+end
+```
+
+Mit diesem Code konnte ich die Linux Maschine M300WEB01 erstellen, ein test über den Browser über localhost:8080 hat gezeigt, dass der Webserver funktiniert:
+
+![alt text](bilder/apache.PNG "ESXi Umgebung")
+
 
 ### 05 - Visual Studio Code
 
@@ -164,7 +198,7 @@ Zuerst wurden folgenden Extensions installiert:
 Nun muss die folgende Datei bearbeitet werden:  `File` > `Preferences` > `Settings` (`Ctrl` + `,`) auf `Open setting.json`, nun sollte theoretisch ein Fenster sich öffnen. Dieses noch leere Fenster wurde mit dem folgendem Code erweitert:
 
 ```
-      // Konfiguriert die Globmuster zum Ausschließen von Dateien und Ordnern.
+       // Konfiguriert die Globmuster zum Ausschließen von Dateien und Ordnern.
       "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
