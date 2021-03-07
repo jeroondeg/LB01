@@ -75,11 +75,22 @@ Hierzu müssen folgende Schritte durchgeführt werden:
 
 1. Terminal öffnen
 
-| Befehle      |    Bedeutung    |
-| ------------- |:-------------:|
-| $ git clone https://github.com/jeroondeg/M300-Services/     |      Repository klonen  |
-| $ git pull    |      Zeigt den Status ab   |
-|   $ git status   |     Geänderte Datei(en) werden rot aufgelistet |
+Mit dem folgenden Befehl kann das Repository geklont werden:
+
+```
+| $ git clone https://github.com/jeroondeg/M300-Services/
+```
+
+Mit diesem Befehl kann der Status angezeigt werdenk, dies ist nützlich zum anzeigen ob das Repository aktuell ist, oder wenn Probleme gibt beim Changes pushen:
+```
+$ git pull
+```
+
+Mit dem folgenden Befehl werden Geänderte Datei(en) werden rot aufgelistet:
+
+```
+ $ git status
+```
 
 #### Repository herunteraden
 Dieser Befehl ist wichtig, damit die Änderungen lokal gemacht werden können und anschliessen einfach auf Github hochgeladen werden kömmem. Dazu hier die Schritte: 
@@ -88,9 +99,9 @@ Dieser Befehl ist wichtig, damit die Änderungen lokal gemacht werden können un
 2. Ordner im gewünschtenn Verzeichnis erstellen
 3. Repository mit SSH klonen:
 
-| Befehle      |    Bedeutung    |
-| ------------- |:-------------:|
-|  $ git clone git@github.com:jeroondeg/M300-Services.git    |      Klonen des Respository mit SSH  |
+```
+ $ git clone git@github.com:jeroondeg/M300-Services.git
+```
 
 #### Repository pushen (hochladen)
 
@@ -98,21 +109,23 @@ Dieser Befehl ist wichtig, damit die Änderungen lokal gemacht werden können un
 2. Zum Verzeichnis gehen des repository
 3. Dateien dem Upload hinzufügen:
 
-| Befehle      |    Bedeutung    |
-| ------------- |:-------------:|
-|  $ git add -a.  |      Upload wird "commited" > Kommentar zu Dokumentationszwecken ist dafür notwendig  |
+```
+$ git add -a
+```
+Upload wird "commited" > Kommentar zu Dokumentationszwecken ist dafür notwendig
 
 4. Upload commiten:
 
-| Befehle      |    Bedeutung    |
-| ------------- |:-------------:|
-|   $ git commit -m "Mein Kommentar" |      commiten |
+Dieser Schritt soll zukünftig mit dem Markdown Editor gemacht werden, aber für den Moment wäre dies der Schritt um ein Update zu commiten:
+```
+ $ git commit -m "Mein Kommentar"
+```
 
-5. Zum Schluss noch pushen:
 
-| Befehle      |    Bedeutung    |
-| ------------- |:-------------:|
-|    $ git push |      pushen (hochladen) |
+1. Zum Schluss noch pushen, mit diesem Befehl werden die Changes endgültig in das Github Repository hochgeladen:
+```
+$ git push
+```
 
 ### 03 - VirtualBox
 In diesem Abschnitt geht es um eine Basic Installation eines Linux über Virtualbox. Ich mache alles auf einer ESXi Umgebung, welche aus 3 ESXi besteht. Dementsprechend habe ich auf dieser Umgebung viel Ressourcen, deshalb habe ich diesen Schritt über ESXi erledigt. Ich werde nicht weiter darauf eingehen, wie ich das gemacht habe, da jeder mittlerweile eine VM aufsetzen kann. Hier einmal ein Screenshot von der ESXi Umgebung:
@@ -128,18 +141,38 @@ Wenn man schon einmal selber die VM's erstellt hat, dann weiss man für mehrere 
 
 Im gewünschten Verzeichnis kann man mit einer Zeile, die VM erzeugen:
 
-| Befehle      |    Bedeutung    |
-| ------------- |:-------------:|
-|  $ vagrant init ubuntu/xenial64 |   Vagrantfile erzeugen |
-|  $ vagrant up --provider virtualbox | Virtuelle Maschine erstellen & starten |
+Mit diesem Befehl wird das Vagrant File erstellt, welches notwendig ist um danach die VMs von Vagrant auf zu erstellen:
+```
+$ vagrant init ubuntu/xenial64
+```
 
+Nach einiger Wartezeit sollte der Befehl erfolgreich durchgelaufen sein, danach kann die VM mit dem folgendem Befehl gestartet werden:
+```
+$ vagrant up --provider virtualbox
+```
 
+### 05 - Visual Studio Code
 
+Einige der Klasse haben sich dazu entschieden nicht mit Visual Studio Code zu arbeiten, ich hingegen mag es mit Visual Studio Code zu arbeiten, demanch wurde alles gemäss der Anleitung installiert das beinhaltet folgende Schritte:
 
-### 05 - Visual Studio
+Zuerst wurden folgenden Extensions installiert:
 
-Ich habe mich nicht für Visual Studio entschieden, sondern für Atom. Diese wurde mir von einem Kollegen empfohlen. Das ist ein Editor. Dieser wird benutzt, um dort zu dokumentieren, für eine gute Übersicht. Natürich muss es zuerst mit Github verbunden werden.
+* Markdown All in One (von Yu Zhang)
+* Vagrant Extension (von Marco Stanzi)
+* vscode-pdf Extension (von tomiko1207)
 
+Nun muss die folgende Datei bearbeitet werden:  `File` > `Preferences` > `Settings` (`Ctrl` + `,`) auf `Open setting.json`, nun sollte theoretisch ein Fenster sich öffnen. Dieses noch leere Fenster wurde mit dem folgendem Code erweitert:
+
+```
+      // Konfiguriert die Globmuster zum Ausschließen von Dateien und Ordnern.
+      "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.vagrant": true,
+        "**/.DS_Store": true
+      },
+```
 
 ## 20 - Infrastruktur-Automatisierung
 
