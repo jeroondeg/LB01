@@ -37,8 +37,7 @@ Als nächstes muss ein Repository erstellt werden. Ein Repository ist eine Art S
 1. Terminal Bash öffnen
 2. Den Befehl eingeben mit der Emailadresse des Github Accounts:
 
-| $ ssh-keygen -t rsa -b 4096 -C 'DEINE EMAILADRESSE'        |    Regeniert den SSH Key     |
-| ------------- |:-------------:|
+``` $ ssh-keygen -t rsa -b 4096 -C 'DEINE EMAILADRESSE' ```
 
 3. Danach wird ein Key erstellt und man muss mit Enter bestätigen.
 
@@ -131,6 +130,9 @@ Im gewünschten Verzeichnis kann man mit einer Zeile, die VM erzeugen:
 | ------------- |:-------------:|
 |  $ vagrant init ubuntu/xenial64 |   Vagrantfile erzeugen |
 |  $ vagrant up --provider virtualbox | Virtuelle Maschine erstellen & starten |
+
+
+
 
 ### 05 - Visual Studio
 
