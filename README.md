@@ -115,13 +115,14 @@ Dieser Befehl ist wichtig, damit die Änderungen lokal gemacht werden können un
 | ------------- |:-------------:|
 |    $ git push |      pushen (hochladen) |
 
-
 ## 03 - VirtualBox
 In diesem Abschnitt geht es um eine Basic Installation eines Linux über Virtualbox. Ich mache alles auf einer ESXi Umgebung, welche aus 3 ESXi besteht. Dementsprechend habe ich auf dieser Umgebung viel Ressourcen, deshalb habe ich diesen Schritt über ESXi erledigt. Ich werde nicht weiter darauf eingehen, wie ich das gemacht habe, da jeder mittlerweile eine VM aufsetzen kann. Hier einmal ein Screenshot von der ESXi Umgebung:
 
+![alt text](bilder/esxumgebung.PNG "ESXi Umgebung")
 
 Und hier noch ein Screenshot von der M300 Infrastrukut Stand jetzt:
 
+![alt text](bilder/m300umgebung.PNG "M300 Umgebung")
 ## 04 - Vagrant
 
 Wenn man schon einmal selber die VM's erstellt hat, dann weiss man für mehrere braucht man lange. Für eine schnellere Variante gibt es Vagrant. Mit dem können VM's automatisch erstellt werden mit nur einem kurzen Code.
@@ -155,11 +156,3 @@ Ich habe mich nicht für Visual Studio entschieden, sondern für Atom. Diese wur
 * [35 Sicherheit](35-Sicherheit/)
 * [40 Kubernetes (k8s)](40-Kubernetes/)
 * [80 Ergänzungen zu den Unterlagen](80-Ergaenzungen/)
-
-### 10 Toolumgebung aufsetzen
-### 20 Infrastruktur-Automatisierung
-### 25 Sicherheit
-### 30 Container
-### 35 Sicherheit
-### 40 Kubernetes (k8s)
-### 80 Ergänzungen zu den Unterlagen
