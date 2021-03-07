@@ -135,3 +135,16 @@ Im gewünschten Verzeichnis kann man mit einer Zeile, die VM erzeugen:
 ### 05 - Visual Studio
 
 Ich habe mich nicht für Visual Studio entschieden, sondern für Atom. Diese wurde mir von einem Kollegen empfohlen. Das ist ein Editor. Dieser wird benutzt, um dort zu dokumentieren, für eine gute Übersicht. Natürich muss es zuerst mit Github verbunden werden.
+
+
+## 20 - Infrastruktur-Automatisierung
+
+## 25 Sicherheit
+
+## 30 Container
+
+## 35 Sicherheit
+
+## 40 Kubernetes (k8s)
+
+## 80 Ergänzungen zu den Unterlagen
