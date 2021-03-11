@@ -6,8 +6,7 @@
 In diesem Dokument werden alle Arbeiten weitesgehend dokumentiert.
 
 ## Inhaltsverzeichnis
-* Einrichtung / Vorbereitung
-* [10 Toolumgebung](#10-toolumgebung)
+* [10 Toolumgebung](#10-toolumgebung) 
 * [20 Infrastruktur-Automatisierung](#20---infrastruktur-automatisierung)
 * [25 Sicherheit](#25-Sicherheit)
 * [30 Container](#30-Container)
