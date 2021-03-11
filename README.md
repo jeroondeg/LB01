@@ -181,7 +181,7 @@ end
 
 Mit diesem Code konnte ich die Linux Maschine M300WEB01 erstellen, ein test über den Browser über localhost:8080 hat gezeigt, dass der Webserver funktiniert:
 
-![alt text](bilder/apache.PNG "ESXi Umgebung")
+![alt text](bilder/apache.PNG "Apache Standard Seite")
 
 
 ### 05 - Visual Studio Code
@@ -208,6 +208,19 @@ Nun muss die folgende Datei bearbeitet werden:  `File` > `Preferences` > `Settin
 ```
 
 ## 20 - Infrastruktur-Automatisierung
+
+### 01 - Firewall & Reverse Proxy
+In diesem Abschnitt wird die UFW Firewall installiert um einfache Firewall Regeln zu erstellen, damit unser Webserver nicht kompett ungeschützt ist.
+
+Als erstes wird mit dem folgenden Befehl herausgefunden, welche Ports offen sind.
+
+```
+$ netstat -tulpen
+```
+
+Hier die Ausgabe:
+![alt text](bilder/netstat "Offene Ports")
+
 
 ## 25 Sicherheit
 
