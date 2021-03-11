@@ -209,6 +209,8 @@ Nun muss die folgende Datei bearbeitet werden:  `File` > `Preferences` > `Settin
 
 ## 20 - Infrastruktur-Automatisierung
 
+## 25 Sicherheit
+
 ### 01 - Firewall & Reverse Proxy
 In diesem Abschnitt wird die UFW Firewall installiert um einfache Firewall Regeln zu erstellen, damit unser Webserver nicht kompett ungeschützt ist.
 
@@ -219,10 +221,49 @@ $ netstat -tulpen
 ```
 
 Hier die Ausgabe:
-![alt text](bilder/netstat "Offene Ports")
 
+![alt text](bilder/netstat.png "Offene Ports")
 
-## 25 Sicherheit
+Nun da da bekannt ist, welche Ports offen sind, kann die Firewall installiert werden:
+
+```
+sudo apt-get install ufw
+```
+
+Bei einigen Distributionen ist die Firewall jedoch Standardmässig schon installiert. Nun setze ich noch, dass der Service jeweils immer im Autostart ist.
+
+```
+$ sudo ufw enable
+```
+
+Hier die Ausgabe:
+
+![alt text](bilder/enable.png "UFW Enable")
+
+Bevor ich Firewall Regeln erstellt habe, wollte ich schauen was die aktuellen sind, hier die Ausgabe:
+
+![alt text](bilder/rulesbefore.PNG "Rules Bevor Änderungen")
+
+Nun wurden folgende Rules angelegt:
+
+```
+# Port 80 (HTTP) öffnen für alle
+vagrant ssh web
+sudo ufw allow 80/tcp
+exit
+
+# Port 22 (SSH) nur für den Host (wo die VM laufen) öffnen
+vagrant ssh web
+sudo ufw allow from 10.10.30.10 to any port 22
+exit
+
+# Port 3306 (MySQL) nur für den web Server öffnen
+vagrant ssh database
+sudo ufw allow from [IP der Web-VM] to any port 3306
+exit
+```
+Anschliessend wollte ich überprüfen, ob die Regeln alle korrekt angelegt wurden, erneut über den Befehl "ufw status", hier die Ausgabe:
+
 
 ## 30 Container
 
