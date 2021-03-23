@@ -222,7 +222,7 @@ $ netstat -tulpen
 
 Hier die Ausgabe:
 
-![alt text](bilder/netstat.png "Offene Ports")
+![alt text](bilder/netstat.PNG "Offene Ports")
 
 Nun da da bekannt ist, welche Ports offen sind, kann die Firewall installiert werden:
 
@@ -238,7 +238,7 @@ $ sudo ufw enable
 
 Hier die Ausgabe:
 
-![alt text](bilder/enable.png "UFW Enable")
+![alt text](bilder/enable.PNG "UFW Enable")
 
 Bevor ich Firewall Regeln erstellt habe, wollte ich schauen was die aktuellen sind, hier die Ausgabe:
 
@@ -259,7 +259,7 @@ exit
 
 # Port 3306 (MySQL) nur für den web Server öffnen
 vagrant ssh database
-sudo ufw allow from [IP der Web-VM] to any port 3306
+sudo ufw allow from  10.0.2.15 to any port 3306
 exit
 ```
 Anschliessend wollte ich überprüfen, ob die Regeln alle korrekt angelegt wurden, erneut über den Befehl "ufw status", hier die Ausgabe:
