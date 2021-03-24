@@ -301,12 +301,26 @@ ProxyPassReverse /master http://master
 In diesem Abschnitt habe ich leider nichts neues dazu gelernt, da ich schon mehrmals mit Linux gearbeitet habe, war mir das meiste klar.
 
 ### 04 - SSH
+Da man auch das Passwort Theoretisch mit einem Kesylogger mitlesen kann empfiehlt sich hier einen Privaten Key Schlüssel zu erzeugen und sich dann mit  diesem einzuloggen.
 
-Auch in diesem Abschnitt gibt es nicht viel zu dokumentieren.
+Hier einmal ohne den Privat Key: 
+
+![alt text](bilder/access.PNG "ldap")
+
+
+Und hier einmal nach dem der Privat key hinzugefügt wurde:
+
+![alt text](bilder/accesswopw.PNG "ldap")
+
+Ansonsten gibt es in diesem Abschnitt viel mehr zu dokumentieren.
 
 ### 05 - Authentifizierung & Autorisierung & LDAP
 
 Einen Apache Server zu sichern habe ich bereits schon mit grösseren Applikationen etc. gemacht, deshalb gehe nicht allzugross auf dieses Kapitel ein, jedoch habe ich mich versucht in das nächste Thema ein bisschen mehr reinzukämpfen.
+
+Ich habe noch eine LDAP Webseite mit meiner Aktiven Testdomäne gemacht:
+
+
 
 #### LDAP
 Als erstes wurde das Vagrantfile von Github auf meine VM kopiert. Anschliessend wurde eine Vagrant VM auf der Datei erstellt. In diesem ganzen Modul habe ich auch stets immer auf eine gewisse Ordnung geachtet, sprich ich habe jeweils immer die VMs schön benannt, mein Markdown geführt etc.
@@ -323,11 +337,12 @@ In einer Windows Domäne zum Beispiel, will man zum Teil, dass sich User mit ein
 
 ### 05 - Reflexion
 
-Ich finde das Modul bis jetzt ok, ich weiss dass es aber mit den Arbeiten in LB02 viel interessanter werden wird, deshalb freue ich mich sehr. Bis jetzt habe ich schon viel gelernt. Ich denke, dass was wir bis Hier hin gemacht haben ist mehr oder weniger der Einstieg, das "Basiswissen". Ich hoffe dass ich mit meiner Zusatzarbeit zeigen konnte wie sehr ich das Modul eigentlich im Griff habe.
+Ich finde das Modul bis jetzt ok, ich weiss dass es aber mit den Arbeiten in LB02 viel interessanter werden wird, deshalb freue ich mich sehr. Bis jetzt habe ich schon viel gelernt. Ich denke, dass was wir bis hierhin gemacht haben, ist mehr oder weniger der Einstieg, das "Basiswissen". Ich finde Vagrant an sich eine Coole Idee, jedoch finde ich es nicht praktisch. Ein Orchestrierung/Automatisierung sollte nicht allzu kompliziert sein. auf der anderen Seite sehe ich die sehr vielen Vorteile, welche man mit Vagrant hat. Man kann eine VM bsis auf das kleinste Detail vorbereiten und deployen, wenn diese VM korrekt funktioniert, ist skalierbarkeit ab hier keine Schwierigkeit mehr.
 
 
 
 ## 30 Container
+
 
 ## 35 Sicherheit
 
