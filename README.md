@@ -211,7 +211,7 @@ Nun muss die folgende Datei bearbeitet werden:  `File` > `Preferences` > `Settin
 
 ## 25 Sicherheit
 
-### 01 - Firewall & Reverse Proxy
+### 01 - Firewall
 In diesem Abschnitt wird die UFW Firewall installiert um einfache Firewall Regeln zu erstellen, damit unser Webserver nicht kompett ungeschützt ist.
 
 Als erstes wird mit dem folgenden Befehl herausgefunden, welche Ports offen sind.
@@ -262,7 +262,69 @@ vagrant ssh database
 sudo ufw allow from  10.0.2.15 to any port 3306
 exit
 ```
-Anschliessend wollte ich überprüfen, ob die Regeln alle korrekt angelegt wurden, erneut über den Befehl "ufw status", hier die Ausgabe:
+
+Der Zugriff wurde danach erfolgreich getestet. Anschliessend wurden alle Regeln wieder gelöscht.
+
+### 02 - Reverse Proxy
+
+Für diese Aufgabe habe ich wieder den Webserver gestartet. Folgende zwei Packages wurden noch installert:
+```
+$ sudo apt-get install libapache2-mod-proxy-html
+$ sudo apt-get install libxml2-dev
+```
+
+
+Danach müssen mehrere Services aktiviert werden, dies kann man mit den folgenden Befehlen machen:
+
+```
+$ sudo a2enmod proxy
+$ sudo a2enmod proxy_html
+$ sudo a2enmod proxy_http 
+```
+
+Anschliessend einmal den Apache Server neustarten und schon kann man Proxy Einstellungen vornehmen. Ich habe zum Beispiel folgendes konfiguriert auf meinem M300WEB03:
+
+```
+# Allgemeine Proxy Einstellungen
+ProxyRequests Off
+<Proxy *>
+   Order deny,allow
+   Allow from all
+</Proxy>
+
+# Weiterleitungen master
+ProxyPass /master http://master
+ProxyPassReverse /master http://master
+```
+
+### 03 - Benutzer
+In diesem Abschnitt habe ich leider nichts neues dazu gelernt, da ich schon mehrmals mit Linux gearbeitet habe, war mir das meiste klar.
+
+### 04 - SSH
+
+Auch in diesem Abschnitt gibt es nicht viel zu dokumentieren.
+
+### 05 - Authentifizierung & Autorisierung & LDAP
+
+Einen Apache Server zu sichern habe ich bereits schon mit grösseren Applikationen etc. gemacht, deshalb gehe nicht allzugross auf dieses Kapitel ein, jedoch habe ich mich versucht in das nächste Thema ein bisschen mehr reinzukämpfen.
+
+#### LDAP
+Als erstes wurde das Vagrantfile von Github auf meine VM kopiert. Anschliessend wurde eine Vagrant VM auf der Datei erstellt. In diesem ganzen Modul habe ich auch stets immer auf eine gewisse Ordnung geachtet, sprich ich habe jeweils immer die VMs schön benannt, mein Markdown geführt etc.
+
+Nun kann man die Funktionalität der VM testen, indem man die folgende URL aufruft: http://localhost:8081/phpldapadmin
+
+Falls alles geklappt hat, sollte man das folgende Bild sehen:
+
+![alt text](bilder/ldap.PNG "ldap")
+
+Nun wurde zum einen ein User erstellt und zum anderen eine Gruppe, dies nicht über das Gui sondern als Import. Schlussendlich habe ich nun zwei Benutzer.
+
+In einer Windows Domäne zum Beispiel, will man zum Teil, dass sich User mit einem einheitlichen LDAP Login an mehreren Orten einloggen können. Dies habe ich hier simuliert. Dazu habe ich auf dem Apache Server eine Login Maska erstellen lassen.
+
+### 05 - Reflexion
+
+Ich finde das Modul bis jetzt ok, ich weiss dass es aber mit den Arbeiten in LB02 viel interessanter werden wird, deshalb freue ich mich sehr. Bis jetzt habe ich schon viel gelernt. Ich denke, dass was wir bis Hier hin gemacht haben ist mehr oder weniger der Einstieg, das "Basiswissen". Ich hoffe dass ich mit meiner Zusatzarbeit zeigen konnte wie sehr ich das Modul eigentlich im Griff habe.
+
 
 
 ## 30 Container
